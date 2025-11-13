@@ -25,7 +25,7 @@ def certificate():
         return redirect("/")
     
     # Ensure that name is not too long
-    elif len(name) > 23:
+    elif len(name) > 25:
         flash("Name is too long.")
         return redirect("/")
 

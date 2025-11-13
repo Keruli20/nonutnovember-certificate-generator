@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
 {% block main %}
-<h1 class="mb-1">🎉 You Completed NNN 2025 🎉</h1>
+<h1 class="mb-1 fw-bold">🎉 You Completed NNN 2025 🎉</h1>
 <p>Enjoy your well-earned certificate soldier. o7</p>
 <div class="mb-4 mt-4">
-    <img src="static/template/NNN 2025 Certificate.png" alt="Certificate Template" width="500">
+    <img class="blur" src="static/template/NNN 2025 Certificate.png" alt="Certificate Template" width="500">
 </div>
 <form action="/certificate" method="post">
     <div class="mb-3">
-        <input class="form-control mx-auto w-auto" name="name" placeholder="Your name here" type="text" maxlength="23"
+        <input class="form-control mx-auto w-auto" name="name" placeholder="Your name here" type="text" maxlength="25"
             required>
     </div>
 
@@ -31,13 +31,13 @@
         confetti({
             particleCount: 300,
             spread: 90,
-            origin: { x: 1, y: 0.9 },
+            origin: { x: 1, y: 1 },
         });
 
         confetti({
             particleCount: 300,
             spread: 90,
-            origin: { x: 0, y: 0.9 },
+            origin: { x: 0, y: 1 },
         });
     };
 </script>
