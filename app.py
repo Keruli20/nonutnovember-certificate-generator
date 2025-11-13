@@ -1,11 +1,15 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash, redirect
 from PIL import Image, ImageDraw, ImageFont
 import io
+import os
 import base64
+from dotenv import load_dotenv
 
+load_dotenv()
 app = Flask(__name__)
+app.secret_key = os.getenv("SECRET_KEY")
 
-@app.route("/")
+@app.route("/") 
 def index():
     return render_template("index.html")
 
@@ -15,7 +19,17 @@ def certificate():
     # Gets the name that the user sent
     name = request.form.get("name")
 
-    # Opens certificate template using Pillow
+    # Ensure that name is present
+    if not name:
+        flash("Please enter a name.")
+        return redirect("/")
+    
+    # Ensure that name is not too long
+    elif len(name) > 23:
+        flash("Name is too long.")
+        return redirect("/")
+
+    # Opens certificate template using Pillow   
     img = Image.open('static/template/NNN 2025 Certificate.png')
     draw = ImageDraw.Draw(img)
 
@@ -25,7 +39,7 @@ def certificate():
     pixel = round(point * 1.3333)
 
     # Assigns the font for the text
-    font = ImageFont.truetype("Garamond Bold.ttf", pixel)
+    font = ImageFont.truetype("static/font/Garamond Bold.ttf", pixel)
 
     # Gets the image dimensions
     W, H = img.size
@@ -36,7 +50,7 @@ def certificate():
 
     # Position of the text on the certificate
     y = 864
-    x = (W - text_width) /2
+    x = (W - text_width) /2 
 
     # Creates the filled certificate
     draw.text((x, y), name, font=font, fill="black")

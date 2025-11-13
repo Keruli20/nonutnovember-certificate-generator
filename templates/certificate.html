@@ -1,14 +1,18 @@
 {% extends "base.html" %}
 
 {% block title %}
-    
+
 {% endblock %}
 
 {% block main %}
-    <h>Your certificate</h>
-    <div class="mb-3">
-        <img src="data:image/png;base64,{{ image }}" alt="Certificate" width="800">
-    </div>
-    <a href="data:image/png;base64,{{ image }}" download="certificate.png" class="btn btn-primary">Download Certificate</a>
-
+<div class="mb-4 mt-4">
+    <img src="data:image/png;base64,{{ image }}" alt="Certificate" width="1000">
+</div>
+<div class="mb-3">
+    <a href="data:image/png;base64,{{ image }}" download="certificate.png" class="btn btn-primary btn-lg">Download
+        Certificate</a>
+</div>
+<div>
+    <a href="/" class="btn btn-secondary">Back</a>
+</div>
 {% endblock %}
