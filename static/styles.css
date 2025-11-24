@@ -1,3 +1,19 @@
+html {
+    font-size: 150%;
+}
+
+#cert {
+    width: 50rem
+}
+
+#cert-template {
+    width: 25rem
+}
+
+body {
+    background: AntiqueWhite
+}
+
 main {
     font-family: Garamond;
 }

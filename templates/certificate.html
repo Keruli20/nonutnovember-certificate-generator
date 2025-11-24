@@ -5,8 +5,8 @@
 {% endblock %}
 
 {% block main %}
-<div class="mb-4 mt-4">
-    <img src="data:image/png;base64,{{ image }}" alt="Certificate" width="1000">
+<div class="mb-4">
+    <img id="cert" src="data:image/png;base64,{{ image }}" alt="Certificate">
 </div>
 <div class="mb-3">
     <a href="data:image/png;base64,{{ image }}" download="certificate.png" class="btn btn-primary btn-lg">Download
